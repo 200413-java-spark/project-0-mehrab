@@ -16,9 +16,8 @@ class Calc {
 
         if (operator.equals('*')) {
             System.out.println(operand_a * operand_b);
-        }
+        }          
         
-        
-
+        calc_input.close();
     }
 }
