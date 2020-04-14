@@ -8,15 +8,22 @@ class Calc {
 
         int operand_a=calc_input.nextInt();        
 
-        System.out.println("Enter operand 2");
-        int operand_b = calc_input.nextInt();
-
         System.out.println("Enter operator ex: +, -, *, /");
         Character operator = calc_input.next().charAt(0);
 
-        if (operator.equals('*')) {
+        System.out.println("Enter operand 2");
+        int operand_b = calc_input.nextInt();
+
+
+        if (operator.equals('+')) {
+            System.out.println(operand_a + operand_b);
+        } else if (operator.equals('-')) {
+            System.out.println(operand_a - operand_b);
+        } else if (operator.equals('*')) {
             System.out.println(operand_a * operand_b);
-        }          
+        } else if (operator.equals('/')) {
+            System.out.println(operand_a / operand_b);
+        }  
         
         calc_input.close();
     }
