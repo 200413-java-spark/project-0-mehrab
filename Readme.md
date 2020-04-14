@@ -1,15 +1,26 @@
 # Calculator
+
 A basic calculator
 
 ## Examples
+
 ```
 // Addition
-$ java Calc 2 + 2
+$ Enter operand 1
 4
+
+$ Enter operator ex: +, -, *, /
++
+
+$ Enter operand 2
+5
+9
 ```
 
 ## Build
+
 >./build.sh
 
 ## Usage
->java Calc [operand] [operator] [operand]
+
+>java Calc
