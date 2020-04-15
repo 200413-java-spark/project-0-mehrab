@@ -10,7 +10,8 @@ class Calc {
             this.b = b;
         }
 
-        Operation() {}
+        Operation() {
+        }
     }
 
     public Operation parse(String[] args) {
@@ -32,27 +33,46 @@ class Calc {
         return operation;
     }
 
-    public static void main(String[] args) {
-        // Parse input: 1) parse subcommand, 2) parse operands        
-        Calc calc = new Calc();
-        Operation operation = calc.parse(args);
-
-        // Select operation
+    public void calculate(Operation operation) {
         double output = 0.0;
-        if (operation.subcommand.equals("add")) {
-            // Perform operation
-            output = operation.a + operation.b;
-        } else if (operation.subcommand.equals("sub")) {
-            output = operation.a - operation.b;
-        } else if (operation.subcommand.equals("mul")) {
-            output = operation.a * operation.b;
-        } else if (operation.subcommand.equals("div")) {
-            output = operation.a / operation.b;
-        } else {
-            System.out.println("Unrecognized");
-        }
 
-        // Output
+        switch (operation.subcommand) {
+            case "+":
+                output = operation.a + operation.b;
+                break;
+            case "-":
+                output = operation.a - operation.b;
+                break;
+            case "*":
+                output = operation.a * operation.b;
+                break;
+            case "/":
+                output = operation.a / operation.b;
+                break;
+            case "%":
+                output = operation.a % operation.b;
+                break;
+            default:
+                System.out.println("Unrecognized");
+        }
         System.out.println(output);
+    }
+
+    public static void main(String[] args) {
+        // Parse input: 1) parse subcommand, 2) parse operands
+        System.out.println("Please enter 1st operand:");
+        String a = System.console().readLine();
+
+        System.out.println("Please enter operator");
+        String op = System.console().readLine();
+
+        System.out.println("Please enter 2nd operand:");
+        String b = System.console().readLine();
+
+        String[] inputs = {op, a, b};
+
+        Calc calc = new Calc();
+        Operation operation = calc.parse(inputs);
+        calc.calculate(operation);
     }
 }
